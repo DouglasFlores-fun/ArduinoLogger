@@ -6,7 +6,7 @@ void Logger::setLogLevel(int level) {
   logLevel = level;
 }
 
-void Logger::enableLogging(bool enable) {
+void Logger::enable(bool enable) {
   isEnabled = enable;
 }
 

@@ -14,7 +14,7 @@ class Logger {
     Logger(int level);
 
     void setLogLevel(int level);
-    void enableLogging(bool enable);
+    void enable(bool enable);
 
     // Short name methods
     void c(const char* message);

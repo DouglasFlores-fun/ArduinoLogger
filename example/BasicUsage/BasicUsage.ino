@@ -1,15 +1,15 @@
 #include <Logger.h>
 
-Logger log(LOG_LEVEL_INFO);
+Logger logger(LOG_LEVEL_INFO);
 
 void setup() {
   Serial.begin(9600);
-  log.enableLogging(true);
+  logger.enable(true);
 
-  log.logInfo("System initialized");
-  log.i("Short Info message");
-  log.w("Short Warning message");
-  log.c("Short Critical message");
+  logger.info("System initialized");
+  logger.i("Short Info message");
+  logger.w("Short Warning message");
+  logger.c("Short Critical message");
 }
 
 void loop() {
