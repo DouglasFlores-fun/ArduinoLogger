@@ -15,6 +15,9 @@ class SimpleLogger {
 
     void setLogLevel(int level);
     void enable(bool enable);
+    void setSerial(Stream &serialPort);
+    void setCallback(void (*callbackFunction)(int, const char*));
+
 
     // Short name methods
     void c(const char* message);
@@ -29,11 +32,13 @@ class SimpleLogger {
     void debug(const char* message);
 
   private:
-    int logLevel;
-    bool isEnabled;
+    int _logLevel;
+    bool _isEnabled;
+    Stream *_serial;
 
     void log(int level, const char* message);
     void printLogLevel(int level);
+    void (*_callback)(int, const char*);  // Function pointer to store the callback
 };
 
 #endif // LoggerForMicrocontroller_H
