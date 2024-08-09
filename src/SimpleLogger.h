@@ -1,5 +1,5 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef LoggerForMicrocontroller_H
+#define LoggerForMicrocontroller_H
 
 #include <Arduino.h>
 
@@ -9,9 +9,9 @@
 #define LOG_LEVEL_INFO     3
 #define LOG_LEVEL_DEBUG    4
 
-class Logger {
+class SimpleLogger {
   public:
-    Logger(int level);
+    SimpleLogger(int level);
 
     void setLogLevel(int level);
     void enable(bool enable);
@@ -36,4 +36,4 @@ class Logger {
     void printLogLevel(int level);
 };
 
-#endif // LOGGER_H
+#endif // LoggerForMicrocontroller_H

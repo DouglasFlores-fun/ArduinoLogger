@@ -1,6 +1,6 @@
-#include <Logger.h>
+#include <SimpleLogger.h>
 
-Logger logger(LOG_LEVEL_INFO);
+SimpleLogger logger(LOG_LEVEL_INFO);
 
 void setup() {
   Serial.begin(9600);

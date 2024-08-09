@@ -1,55 +1,55 @@
-#include "Logger.h"
+#include "SimpleLogger.h"
 
-Logger::Logger(int level) : logLevel(level), isEnabled(true) {}
+SimpleLogger::LoggerForMicrocontroller(int level) : logLevel(level), isEnabled(true) {}
 
-void Logger::setLogLevel(int level) {
+void SimpleLogger::setLogLevel(int level) {
   logLevel = level;
 }
 
-void Logger::enable(bool enable) {
+void SimpleLogger::enable(bool enable) {
   isEnabled = enable;
 }
 
-void Logger::c(const char* message) {
+void SimpleLogger::c(const char* message) {
   log(LOG_LEVEL_CRITICAL, message);
 }
 
-void Logger::w(const char* message) {
+void SimpleLogger::w(const char* message) {
   log(LOG_LEVEL_WARNING, message);
 }
 
-void Logger::i(const char* message) {
+void SimpleLogger::i(const char* message) {
   log(LOG_LEVEL_INFO, message);
 }
 
-void Logger::d(const char* message) {
+void SimpleLogger::d(const char* message) {
   log(LOG_LEVEL_DEBUG, message);
 }
 
-void Logger::critical(const char* message) {
+void SimpleLogger::critical(const char* message) {
   log(LOG_LEVEL_CRITICAL, message);
 }
 
-void Logger::warning(const char* message) {
+void SimpleLogger::warning(const char* message) {
   log(LOG_LEVEL_WARNING, message);
 }
 
-void Logger::info(const char* message) {
+void SimpleLogger::info(const char* message) {
   log(LOG_LEVEL_INFO, message);
 }
 
-void Logger::debug(const char* message) {
+void SimpleLogger::debug(const char* message) {
   log(LOG_LEVEL_DEBUG, message);
 }
 
-void Logger::log(int level, const char* message) {
+void SimpleLogger::log(int level, const char* message) {
   if (isEnabled && level <= logLevel) {
     printLogLevel(level);
     Serial.println(message);
   }
 }
 
-void Logger::printLogLevel(int level) {
+void SimpleLogger::printLogLevel(int level) {
   switch (level) {
     case LOG_LEVEL_CRITICAL: Serial.print("[CRITICAL] "); break;
     case LOG_LEVEL_WARNING:  Serial.print("[WARNING]  "); break;
